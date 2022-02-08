@@ -1,0 +1,46 @@
+﻿<MudTable @ref="table" Items="@TimeSheets" Dense="false" Hover="true" CanCancelEdit="true" Elevation=4 Class="mt-4"
+          @bind-SelectedItem="selectedItem1"
+          RowEditPreview="BackupItem">
+    <HeaderContent>
+        <MudTh>Activity</MudTh>
+        <MudTh>Project</MudTh>
+        <MudTh>Time</MudTh>
+        <MudTh>Note</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Activity">@context.Activity.Name</MudTd>
+        <MudTd DataLabel="Project">@context.Project?.Name</MudTd>
+        <MudTd DataLabel="Time">@context.Time</MudTd>
+        <MudTd DataLabel="Note">@context.Note</MudTd>
+    </RowTemplate>
+    <RowEditingTemplate>
+        <MudTd DataLabel="Activity">
+            <MudSelect @bind-Value="@context.Activity" Required>
+                <PrettyBlazor.Iterations Context="activities" Items=ActivityTypes>
+                    <MudSelectItem Value=@activities>@activities.Name</MudSelectItem>
+                </PrettyBlazor.Iterations>
+            </MudSelect>
+        </MudTd>
+        @if (@context.Activity?.Name == "Project")
+        {
+            <MudTd DataLabel="Project">
+                <MudSelect @bind-Value="@context.Project">
+                    <PrettyBlazor.Iterations Context="projects"  Items=ProjectTypes>
+                        <MudSelectItem Value=@projects>@projects.Name</MudSelectItem>
+                    </PrettyBlazor.Iterations>
+                </MudSelect>
+            </MudTd>
+        }
+        else
+        {
+            <MudTd DataLabel="Project"></MudTd>
+        }
+        <MudTd DataLabel="Time">
+            <MudNumericField T=double @bind-Value="@context.Time"  Validation="@(new Func<double, string>(TimeValidator))" Required />
+        </MudTd>
+        <MudTd DataLabel="Note">
+            <MudTextField @bind-Value="@context.Note" />
+        </MudTd>
+    </RowEditingTemplate>
+</MudTable>
+<MudButton Class="mt-4" Variant=Variant.Filled Color=Color.Primary OnClick=AddNewTimeSheet>Add Activity</MudButton>

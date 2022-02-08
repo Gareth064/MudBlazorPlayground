@@ -1,0 +1,64 @@
+﻿@using PrettyBlazor
+<MudGrid>
+<MudItem>
+        <MudIconButton Icon="@Icons.Material.Filled.ArrowLeft"
+                       Size="Size.Large"
+                       OnClick="PreviousWeek"
+                       aria-label="previous week" />
+    </MudItem>
+    <MudItem>
+        <div class="mud-table-container" style=" ">
+            <table class="mud-table-root">
+                <thead class="mud-table-head">
+                    <tr class="mud-table-row">
+                        <th scope="col" class="mud-table-cell">
+                            Monday <br>
+                            <div style="font-weight: normal"> 31-Jan-22</div>
+                        </th>
+                        <th scope="col" class="mud-table-cell">
+                            Tuesday <br>
+                            <div style="font-weight: normal"> 01-Feb-22</div>
+                        </th>
+                        <th scope="col" class="mud-table-cell">
+                            Wednesday <br>
+                            <div style="font-weight: normal"> 02-Feb-22</div>
+                        </th>
+                        <th scope="col" class="mud-table-cell">
+                            Thursday <br>
+                            <div style="font-weight: normal"> 03-Feb-22</div>
+                        </th>
+                        <th scope="col" class="mud-table-cell">
+                            Friday <br>
+                            <div style="font-weight: normal"> 04-Feb-22</div>
+                        </th>
+                        <th scope="col" class="mud-table-cell">
+                            Saturday <br>
+                            <div style="font-weight: normal"> 05-Feb-22</div>
+                        </th>
+                        <th scope="col" class="mud-table-cell">
+                            Sunday <br>
+                            <div style="font-weight: normal"> 06-Feb-22</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="mud-table-body">
+                    <tr class="mud-table-row" style="">
+                        @foreach (var item in TimeSheets)
+                        {
+                            <td class="mud-table-cell">
+                                <TimeSheetStatusChip Sheet=@item />
+                            </td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </MudItem>
+<MudItem>
+        <MudIconButton Icon="@Icons.Material.Filled.ArrowRight"
+                       Size="Size.Large"
+                       OnClick="NextWeek"
+                       aria-label="next week" />
+    </MudItem>
+</MudGrid>
+

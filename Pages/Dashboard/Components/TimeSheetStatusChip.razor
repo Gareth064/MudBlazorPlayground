@@ -1,0 +1,22 @@
+﻿@using PrettyBlazor
+<Condition Evaluation=@(Sheet.Id < 1)>
+    <Match>
+        <MudChip Variant="Variant.Outlined" Style="cursor:pointer" OnClick="HandleChipClicked">Create New</MudChip>
+    </Match>
+    <NotMatch>
+        <Condition Evaluation=@(Sheet.Status == ForecastStatus.Draft)>
+            <Match>
+                <MudBadge Origin="Origin.CenterRight" Overlap="true" Bordered="true" Content="@Sheet.GetCurrentActualHours().ToString()" Color="Color.Primary">
+                    <MudChip Variant="Variant.Filled" Style="cursor:pointer" OnClick="HandleChipClicked">@Sheet.Status</MudChip>
+                </MudBadge>
+            </Match>
+            <NotMatch>
+                <MudBadge Origin="Origin.CenterRight" Overlap="true" Bordered="true" Content="@Sheet.GetCurrentActualHours().ToString()" Color="Color.Success">
+                    <MudChip Variant="Variant.Filled" Color="Color.Success" Style="cursor:pointer" OnClick="HandleChipClicked">@Sheet.Status</MudChip>
+                </MudBadge>
+            </NotMatch>
+        </Condition>
+    </NotMatch>
+</Condition>
+
+

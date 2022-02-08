@@ -1,0 +1,22 @@
+﻿@page "/dashboard"
+
+<PageTitle>Dashboard</PageTitle>
+<div class="d-flex flex-grow-1 flex-row">
+    <MudContainer Style="">
+        <MudText Typo="Typo.h6" Class="pa-4">Timesheets</MudText>
+        <MudPaper Class="pa-4 flex-grow-1"  Elevation=0 Style="height:100%">
+            <MudBlazorPlayground.Pages.Dashboard.Components.TimesheetHorizontalList />
+            <TodayTimeSheet />
+        </MudPaper>
+    </MudContainer>
+    <div>
+        <MudHidden Breakpoint="Breakpoint.SmAndDown">
+            <MudText Typo="Typo.h6"  Class="pa-4 ml-6">Weekly Forecast</MudText>
+            <MudPaper Class="px-3 pa-8 ml-6" MinWidth="400px" Elevation=0>
+                <ForecastList />
+            </MudPaper>
+        </MudHidden>
+    </div>
+
+
+</div>
