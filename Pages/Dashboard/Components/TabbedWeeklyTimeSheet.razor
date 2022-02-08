@@ -1,0 +1,29 @@
+﻿<MudTabs ApplyEffectsToContainer="true"
+                PanelClass="pa-6" 
+                @bind-ActivePanelIndex="activeIndex">
+    <MudTabPanel Text="Mon">
+        <TodayTimeSheet />
+        </MudTabPanel>
+    <MudTabPanel Text="Tue">
+        <TodayTimeSheet />
+    </MudTabPanel>
+    <MudTabPanel Text="Wed">
+        <TodayTimeSheet />
+    </MudTabPanel>
+        <MudTabPanel Text="Thur">
+        <TodayTimeSheet />
+    </MudTabPanel>
+        <MudTabPanel Text="Fri">
+        <TodayTimeSheet />
+    </MudTabPanel>
+        <MudTabPanel Text="Sat">
+        <TodayTimeSheet />
+    </MudTabPanel>
+        <MudTabPanel Text="Sun">
+        <TodayTimeSheet />
+    </MudTabPanel>
+</MudTabs>
+
+@code {
+    int activeIndex;
+}
